@@ -11,6 +11,7 @@ RobotCommunicator::RobotCommunicator(QObject *parent) : QObject(parent)
     port->setStopBits(QSerialPort::OneStop);
     myStream=new QDataStream(port);
     RobotCommunicator::connect(port, SIGNAL(readyRead()), this, SLOT(readData()),Qt::AutoConnection);
+
 }
 
 

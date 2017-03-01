@@ -12,11 +12,12 @@ class CommandParser : public QObject
 public:
     explicit CommandParser(QObject *parent = 0);
     //virtual void sendCommand(uint8_t cmd,QString parameters);
+
 signals:
 
 public slots:
 private:
-    //QList<AbstractCommands> listCommands;
+    QList<AbstractCommand*> listCommands;
 };
 
 #endif // COMMANDPARSER_H
