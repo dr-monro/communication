@@ -12,6 +12,7 @@ public:
     explicit RobotCommunicator(QObject *parent = 0);
     void connectToPort(QString portName);
     void disconnectPort();
+    void portWrite(QByteArray data);
 signals:
 
 public slots:

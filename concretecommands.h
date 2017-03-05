@@ -14,6 +14,7 @@ class AbstractCommand
 
 public:
     AbstractCommand(uint8_t id){this->id=id;}
+    uint8_t getId(){return id;}
     virtual QByteArray parseData()=0;
 private:
     uint8_t id;
@@ -30,12 +31,18 @@ public:
     {
         QByteArray temp;
         QDataStream tDStream(&temp,QIODevice::ReadWrite);
+        tDStream<<(uint8_t)(obj.size()*sizeof(T)+1);
+        tDStream<<getId();
         for (Cont<T>::iterator it=obj.begin(); it != obj.end(); ++it)
         {
             T t=*it;
             tDStream<< t;
         }
         return temp;
+    }
+    void setParameters(Cont<T> params)
+    {
+        obj=params;
     }
 
 private:
@@ -67,6 +74,11 @@ public:
             tDStream<< t;
         }
         return temp;
+    }
+    void setParameters(Cont<T> params,Cont1<T1> params1)
+    {
+        obj=params;
+        obj1=params1;
     }
 private:
     Cont<T> obj;
@@ -107,6 +119,12 @@ public:
             tDStream<< t;
         }
         return temp;
+    }
+    void setParameters(Cont<T> params,Cont1<T1> params1,Cont2<T1> params2)
+    {
+        obj=params;
+        obj1=params1;
+        obj1=params2;
     }
 private:
     Cont<T> obj;

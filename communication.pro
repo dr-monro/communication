@@ -16,11 +16,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     robotcommunicator.cpp \
-    commandparser.cpp
+    commandparser.cpp \
+    crc32calc.cpp
 
 HEADERS  += mainwindow.h \
     robotcommunicator.h \
     commandparser.h \
-    concretecommands.h
+    concretecommands.h \
+    crc32calc.h \
+    sniptype.h
 
 FORMS    += mainwindow.ui
