@@ -48,5 +48,5 @@ void RobotCommunicator::portWrite(QByteArray data)
     temp.writeRawData(data.data(),data.size());
     uint32_t crc=crc32buf(out.data(),out.size());
     temp<<crc;
-    port->write(data);
+    port->write(out);
 }

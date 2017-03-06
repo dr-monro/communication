@@ -108,7 +108,7 @@ DWORD crc32buf(char *buf, size_t len)
 {
       register DWORD oldcrc32;
 
-      oldcrc32 = 0xFFFFFFFF;
+      oldcrc32 =0xFFFFFFFF;
 
       for ( ; len; --len, ++buf)
       {
